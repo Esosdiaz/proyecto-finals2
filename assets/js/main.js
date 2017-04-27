@@ -1201,35 +1201,36 @@ var res =[
   }
 ]
 
-var tareasFiltradas = []
+var tareasFiltradas = [] // guardará los 10 primeros objetos del json y los nuevos que agregue el usuario
 
 function filtrarTareas(){
   var cont = document.getElementById("tareas-nuevas"); //manda a imprimir al div vacio con el nombre correspondiente
-
-  for (var i = 0; i < 10; i++) {
-  tareasFiltradas.push(res[i])
+  for (var i = 0; i < 10; i++) { //
+  tareasFiltradas.push(res[i]);
   cont.innerHTML += "<li>"+tareasFiltradas[i].title+"</li>"
 }
 }
 
-function Tarea(userId, id, title, completed){
+function Tarea(userId, id, title, completed){ //constructor
   this.userId = userId;
   this.id = id;
   this.title = title;
   this.completed = completed;
-
 }
 
 
 function agregarTareas(){//PARA IMPRIMIR TAREAS NUEVAS
-
-
   var input = document.getElementById("agregar-tarea"); //agarra el input del correo y lo asigna a una variable
-
   var contTareas = document.getElementById("tareas-nuevas"); //manda a imprimir al div vacio con el nombre correspondiente
-  contTareas.innerHTML += "<li>"+input.value +"</li>"; 
+  
+  tarea = new Tarea(1,1,input.value,false) //crea la variable tarea.
+  tareasFiltradas.push(tarea); //pushea a la variable que contiene los 10 primeros obj del json
 
+  contTareas.innerHTML += "<li>"+tarea.title+"</li>"; // imprime en el HTML
   input.value = ""; //para vaciar 
+  console.log(tareasFiltradas);
 }
 
 filtrarTareas();
+
+
