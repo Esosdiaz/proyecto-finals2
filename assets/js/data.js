@@ -1200,20 +1200,3 @@ var res =[
     "completed": false
   }
 ]
-
-/*function filtrarTareas(){
-    resul=[];
-    for (var x=0; x<10; x++){
-    resul[x]=res[x].title;
-    return("<li>"+resul[x]+"</li>");
-};*/
-
-function agregarTareas(){//PARA IMPRIMIR TAREAS NUEVAS
-  var input = document.getElementById("agregar-tarea"); //agarra el input del correo y lo asigna a una variable
-
-  var contTareas = document.getElementById("tareas-nuevas"); //manda a imprimir al div vacio con el nombre correspondiente
-
-  contTareas.innerHTML += input.value +"<br>"; //imprime en la posicion 0 del arreglo -recordar que al ser un class name es un array y por lo tanto tiene posiciones- y va sumando (con el +=) cada uno de los valores del input (value) asignados a la variable input.
-
-  input.value = ""; //para vaciar 
-}
