@@ -1202,18 +1202,27 @@ var res =[
 ]
 
 function filtrarTareas(){
-  tareasFiltradas = []
+  var tareasFiltradas = []
+  var cont = document.getElementById("tareas-nuevas"); //manda a imprimir al div vacio con el nombre correspondiente
+
   for (var i = 0; i < 10; i++) {
-  tareasFiltradas.push(res[i].title);
- document.write ("<li>"+tareasFiltradas[i]+"</li>")
-};
+  tareasFiltradas.push(res[i].title)
+  cont.innerHTML += "<li>"+tareasFiltradas[i]+"</li>"
+}
+}
+
+function Tarea(userId, id, title, completed){
+  this.userId = userId;
+  this.id = id;
+  this.title = title;
+  this.completed = completed;
 }
 
 function agregarTareas(){//PARA IMPRIMIR TAREAS NUEVAS
   var input = document.getElementById("agregar-tarea"); //agarra el input del correo y lo asigna a una variable
 
   var contTareas = document.getElementById("tareas-nuevas"); //manda a imprimir al div vacio con el nombre correspondiente
-  contTareas.innerHTML += "<li>"input.value +"</li>"; 
+  contTareas.innerHTML += "<li>"+input.value +"</li>"; 
 
   input.value = ""; //para vaciar 
 }
